@@ -1,0 +1,4 @@
+enum TodoFilterEnum {
+  shiftType,
+  residentsName,
+}

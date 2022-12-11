@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "855122380941",
+    "project_id": "dexterhealthapp",
+    "storage_bucket": "dexterhealthapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855122380941:android:6ec9af181471e1be103ac4",
+        "android_client_info": {
+          "package_name": "com.example.dexter.nursing_home_dexter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855122380941-n2fab05ri209v1a356jkl287ndt1a7qn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC--ffYDVoJT7NK3zDfCxG3TiwUA89igPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855122380941-n2fab05ri209v1a356jkl287ndt1a7qn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "855122380941-jt9bi3qk56rh7ldqheq3r9b1p0gipori.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dexter.nursingHomeDexter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
