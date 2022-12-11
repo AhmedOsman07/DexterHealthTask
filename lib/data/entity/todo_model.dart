@@ -4,6 +4,7 @@ class TodoModel {
     required this.state,
     required this.residenceName,
     required this.timestamp,
+    required this.date,
     required this.taskTitle,
     required this.residenceID,
     this.id,
@@ -15,11 +16,12 @@ class TodoModel {
   TodoModel.fromJson(Map<String, Object?> json, String id)
       : this(
           id: id,
+          date: json['date']! as String,
           nurseID: json['nurseID']! as String,
           taskTitle: json['taskTitle']! as String,
           state: json['state']! as String,
           timestamp: json['timestamp'] as int,
-          residenceID: json['residenceID']  as String,
+          residenceID: json['residenceID'] as String,
           residenceName: json['residenceName'] as String,
           // taskID: json['taskID']! as String,
         );
@@ -37,6 +39,7 @@ class TodoModel {
   String? shiftTitle;
   String? residenceID;
   String? residenceTitle;
+  String? date;
 
   Map<String, Object?> toJson() {
     return {
@@ -44,6 +47,7 @@ class TodoModel {
       'state': state,
       "timestamp": timestamp,
       "taskTitle": taskTitle,
+      "date": date,
       'shiftID': shiftID,
       'residenceID': residenceID,
       'residenceName': residenceName,

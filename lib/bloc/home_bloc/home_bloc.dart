@@ -36,11 +36,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         .where('date', isLessThan: dateFormat.format(now))
         .get()
         .then((value) async {
-      if (value.docs.length > 0) {
-        value.docs.forEach((element) {
+      if (value.docs.isNotEmpty) {
+        for (var element in value.docs) {
           FirebaseRepo().todoListRef.doc(element.id).update({"date": dateFormat.format(now)});
-        });
-
+        }
         emit(HomeSuccessMessage("Successfully moved ${value.docs.length} pending tasks to today"));
       } //ideally we can add view action on toast and show what was moved
     });
@@ -77,7 +76,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     FirebaseRepo().todoListRef.doc(event.id).update({"state": "Completed"});
     int count = AppSingleton.getInstance.data!.completedTasks! + 1;
     AppSingleton.getInstance.data!.completedTasks = count;
-    FirebaseRepo().nursesRef.doc(AppSingleton.getInstance.user!.uid).update({"completedTasks": count});
+    FirebaseRepo()
+        .nursesRef
+        .doc(AppSingleton.getInstance.user!.uid)
+        .update({"completedTasks": count});
   }
 
   FutureOr<void> _refershLocal(RefereshLocallyEvent event, Emitter<HomeState> emit) {

@@ -34,6 +34,8 @@ class AddTodoBloc extends Bloc<AddTodoEvent, AddTodoState> {
 
   FutureOr<void> _addModel(AddTodo event, Emitter<AddTodoState> emit) async {
     emit(LoadingAddTodoState());
+    final now = DateTime.now();
+
     if (event.shouldAddNewTask) {
       int index = (residenceList!.indexOf(ResidentsModel(
           name: "", residentsTasks: [], id: event.model.residenceID, shiftType: [])));
@@ -62,6 +64,7 @@ class AddTodoBloc extends Bloc<AddTodoEvent, AddTodoState> {
         state: "Pending",
         shiftID: event.model.shiftTypeID,
         timestamp: DateTime.now().millisecondsSinceEpoch,
+        date: dateFormat.format(now),
         taskTitle: event.model.taskTitle,
         residenceID: event.model.residenceID,
         residenceName: event.model.residenceName);
